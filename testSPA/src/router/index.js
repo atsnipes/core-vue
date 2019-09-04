@@ -1,0 +1,58 @@
+// Vue imports
+import Vue from 'vue'
+import Router from 'vue-router'
+
+// 3rd party imports
+import Auth from '@okta/okta-vue'
+
+// our own imports
+import Hello from '@/components/Hello'
+import FoodRecords from '@/components/FoodRecords'
+
+Vue.use(Auth, {
+  issuer: 'https://dev-265490.okta.com/oauth2/default',
+  client_id: '0oaz1g9uaC0FnK4xe356',
+  redirect_uri: 'http://localhost:8080/implicit/callback',
+  scope: 'openid profile email'
+})
+
+Vue.use(Router)
+
+let router = new Router({
+  mode: 'history',
+  routes: [
+	{
+        path: '/',
+        name: 'Hello',
+        meta: 
+        {
+            requiresAuth: false
+        },
+        component: Hello
+	},
+	{
+        path: '/implicit/callback',
+        component: Auth.handleCallback()
+	},
+    {
+        path: '/food-records',
+        name: 'FoodRecords',
+        component: FoodRecords,
+        meta: {
+            requiresAuth: true
+        }
+    },
+    {
+    path: '/error',
+    name: 'error',
+    component: console.log("eror page"),
+    meta: {
+            requresAuth: false
+        }
+    },
+  ]
+})
+
+router.beforeEach(Vue.prototype.$auth.authRedirectGuard())
+
+export default router

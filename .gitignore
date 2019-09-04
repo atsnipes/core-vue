@@ -1,0 +1,7 @@
+backend_new/backend/backend/bin/
+backend_new/backend/backend/obj/
+backend_new/docker/publish/
+node_modules/
+backend_new/backend/.vs/backend/v16/Server/
+backend_new/backend/.vs/backend/
+.DS_Store
