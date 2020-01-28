@@ -14,7 +14,7 @@ WORKDIR "/src/backend"
 RUN dotnet build "backend.csproj" -c Release -o /app
 
 FROM build AS publish
-RUN dotnet publish "backend.csproj" -c Release -o /app
+RUN dotnet publish "backend.csproj" -r linux-arm --self-contained false -c Release -o /app
 
 FROM base AS final
 WORKDIR /app

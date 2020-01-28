@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using backend.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace backend.Controllers
@@ -10,6 +9,16 @@ namespace backend.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        [HttpGet("serPost")]
+        public ActionResult SerPost(string text)
+        {
+            SerialService serService = new SerialService();
+            //Console.WriteLine($"serPost executing with text = {text}");
+            serService.writeSerial(text);
+
+            return Ok(serService.PortNames);
+        }
+
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
