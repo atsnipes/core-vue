@@ -10,9 +10,19 @@ namespace backend.Services
         private SerialPort _serPort;
         private StringBuilder _sb;
 
+        private string _port;
+        public string Port
+        {
+            get
+            {
+                return _port;
+            }
+        }
+
         public SerialService(string port)
         {
-            _serPort = new SerialPort(port);
+            _serPort = new SerialPort();
+            _port = _serPort.PortName;
             _sb = new StringBuilder();
         }
 
@@ -59,7 +69,7 @@ namespace backend.Services
         public void writeSerial(string text)
         {
             //SerialPort serPort = new SerialPort("/dev/ttyACM0");
-            _serPort.DataReceived += new SerialDataReceivedEventHandler(dataReceived);
+            //_serPort.DataReceived += new SerialDataReceivedEventHandler(dataReceived);
 
             try
             {
