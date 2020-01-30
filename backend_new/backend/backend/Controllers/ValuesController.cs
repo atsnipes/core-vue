@@ -12,7 +12,7 @@ namespace backend.Controllers
         [HttpGet("serPost")]
         public ActionResult SerPost(string text)
         {
-            SerialService serService = new SerialService();
+            SerialService serService = new SerialService("/dev/ttyACM0");
             //Console.WriteLine($"serPost executing with text = {text}");
             serService.writeSerial(text);
 

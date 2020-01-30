@@ -5,3 +5,4 @@ node_modules/
 backend_new/backend/.vs/backend/v16/Server/
 backend_new/backend/.vs/backend/
 .DS_Store
+docker/
