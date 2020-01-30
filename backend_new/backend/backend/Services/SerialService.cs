@@ -21,7 +21,7 @@ namespace backend.Services
 
         public SerialService(string port)
         {
-            _serPort = new SerialPort();
+            _serPort = new SerialPort(port);
             _port = _serPort.PortName;
             _sb = new StringBuilder();
         }
