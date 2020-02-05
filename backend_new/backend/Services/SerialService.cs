@@ -18,9 +18,9 @@ namespace backend.Services
             }
             Console.WriteLine($"Trying to open port {port}");
 
-            SerialPortStream serPort = new SerialPortStream(port, 9600);
+            //SerialPortStream serPort = new SerialPortStream(port, 9600);
 
-            if (_toggle)
+           /* if (_toggle)
             {
                 serPort.WriteLine("on");
                 _toggle = !_toggle;
@@ -31,7 +31,7 @@ namespace backend.Services
                 _toggle = !_toggle;
             }
 
-            serPort.Close();
+            serPort.Close();*/
         }
     }
 }
