@@ -13,6 +13,7 @@ namespace backend.Controllers
         public ActionResult SerPost(string text)
         {
             SerialService serService = new SerialService("/dev/ttyACM0");
+            Console.WriteLine($"Ports are: {serService.PortNames}");
             return Ok(serService.PortNames);
         }
 

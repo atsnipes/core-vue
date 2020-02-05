@@ -66,9 +66,9 @@
               "target": "Package",
               "version": "[1.9.10, )"
             },
-            "SerialPortStreamCore": {
+            "System.IO": {
               "target": "Package",
-              "version": "[2.1.0, )"
+              "version": "[4.3.0, )"
             },
             "System.IO.Ports": {
               "target": "Package",
