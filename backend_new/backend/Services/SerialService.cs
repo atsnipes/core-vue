@@ -1,7 +1,5 @@
 ﻿using RJCP.IO.Ports;
 using System;
-using System.IO.Ports;
-using System.Text;
 
 namespace backend.Services
 {
@@ -9,10 +7,11 @@ namespace backend.Services
     {
         Boolean _toggle = false;
 
-        public PortDescription[] PortNames => SerialPortStream.GetPortDescriptions();
+       public PortDescription[] PortNames => SerialPortStream.GetPortDescriptions();
 
         public SerialService(string port)
         {
+
             foreach (PortDescription desc in PortNames)
             {
                 Console.WriteLine("GetPortDescriptions: " + desc.Port + "; Description: " + desc.Description);

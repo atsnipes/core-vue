@@ -3065,33 +3065,26 @@
           }
         }
       },
-      "SerialPortStream/2.2.0": {
+      "SerialPortStreamCore/2.1.0": {
         "type": "package",
         "dependencies": {
+          "Microsoft.Extensions.Logging": "1.1.0",
           "Microsoft.Win32.Registry": "4.3.0",
-          "System.Collections": "4.3.0",
+          "Newtonsoft.Json": "9.0.1",
           "System.Collections.Specialized": "4.3.0",
-          "System.Diagnostics.Debug": "4.3.0",
           "System.Diagnostics.FileVersionInfo": "4.3.0",
-          "System.Diagnostics.Tools": "4.3.0",
           "System.Diagnostics.TraceSource": "4.3.0",
-          "System.IO": "4.3.0",
-          "System.IO.FileSystem": "4.3.0",
-          "System.Runtime.Extensions": "4.3.0",
+          "System.Net.Requests": "4.3.0",
           "System.Runtime.Handles": "4.3.0",
-          "System.Runtime.InteropServices": "4.3.0",
-          "System.Runtime.InteropServices.RuntimeInformation": "4.3.0",
-          "System.Text.Encoding": "4.3.0",
-          "System.Threading": "4.3.0",
           "System.Threading.Overlapped": "4.3.0",
           "System.Threading.Thread": "4.3.0",
           "System.Threading.ThreadPool": "4.3.0"
         },
         "compile": {
-          "lib/netstandard1.5/RJCP.SerialPortStream.dll": {}
+          "lib/netstandard1.5/SerialPortStreamCore.dll": {}
         },
         "runtime": {
-          "lib/netstandard1.5/RJCP.SerialPortStream.dll": {}
+          "lib/netstandard1.5/SerialPortStreamCore.dll": {}
         }
       },
       "SQLitePCLRaw.bundle_green/1.1.12": {
@@ -3812,6 +3805,52 @@
         },
         "compile": {
           "ref/netstandard1.3/System.Net.Primitives.dll": {}
+        }
+      },
+      "System.Net.Requests/4.3.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0",
+          "System.Collections": "4.3.0",
+          "System.Diagnostics.Debug": "4.3.0",
+          "System.Diagnostics.Tracing": "4.3.0",
+          "System.Globalization": "4.3.0",
+          "System.IO": "4.3.0",
+          "System.Net.Http": "4.3.0",
+          "System.Net.Primitives": "4.3.0",
+          "System.Net.WebHeaderCollection": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Threading": "4.3.0",
+          "System.Threading.Tasks": "4.3.0"
+        },
+        "compile": {
+          "ref/netstandard1.3/System.Net.Requests.dll": {}
+        },
+        "runtimeTargets": {
+          "runtimes/unix/lib/netstandard1.3/System.Net.Requests.dll": {
+            "assetType": "runtime",
+            "rid": "unix"
+          },
+          "runtimes/win/lib/netstandard1.3/System.Net.Requests.dll": {
+            "assetType": "runtime",
+            "rid": "win"
+          }
+        }
+      },
+      "System.Net.WebHeaderCollection/4.3.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Runtime.Extensions": "4.3.0"
+        },
+        "compile": {
+          "ref/netstandard1.3/System.Net.WebHeaderCollection.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/System.Net.WebHeaderCollection.dll": {}
         }
       },
       "System.Net.WebSockets.WebSocketProtocol/4.5.1": {
@@ -8186,76 +8225,16 @@
         "version.txt"
       ]
     },
-    "SerialPortStream/2.2.0": {
-      "sha512": "n5L4mh3KObahwJs1p77R8OKBx4abK0k4sHI5QZRPaaDmcGlMMNMz3zwy9GoS22IVIijY0mj8+T0oY3ZhiQ+g5A==",
+    "SerialPortStreamCore/2.1.0": {
+      "sha512": "XbAbTSYTkqHnFS8R2jPMrUZKkPNBuD8pV0sU7j5zyBur4P6e9iBVVC4wCyo4hwgxxyo06qwm4pKG/TcC9csxUw==",
       "type": "package",
-      "path": "serialportstream/2.2.0",
+      "path": "serialportstreamcore/2.1.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "lib/net40/RJCP.SerialPortStream.XML",
-        "lib/net40/RJCP.SerialPortStream.dll",
-        "lib/net40/RJCP.SerialPortStream.pdb",
-        "lib/net45/RJCP.SerialPortStream.XML",
-        "lib/net45/RJCP.SerialPortStream.dll",
-        "lib/net45/RJCP.SerialPortStream.pdb",
-        "lib/netstandard1.5/RJCP.SerialPortStream.dll",
-        "lib/netstandard1.5/RJCP.SerialPortStream.pdb",
-        "lib/netstandard1.5/RJCP.SerialPortStream.xml",
-        "serialportstream.2.2.0.nupkg.sha512",
-        "serialportstream.nuspec",
-        "src/Datastructures/CircularBuffer.cs",
-        "src/Datastructures/ReusableList.cs",
-        "src/Datastructures/TimerExpiry.cs",
-        "src/GlobalSuppressions.cs",
-        "src/HandShake.cs",
-        "src/ISerialPortStream.cs",
-        "src/InternalApplicationException.cs",
-        "src/LocalAsyncResult.cs",
-        "src/Native/INativeSerial.cs",
-        "src/Native/ISerialBufferSerialData.cs",
-        "src/Native/ISerialBufferStreamData.cs",
-        "src/Native/Platform.cs",
-        "src/Native/ReadToCache.cs",
-        "src/Native/SerialBuffer.cs",
-        "src/Native/Unix/INativeSerialDll.cs",
-        "src/Native/Unix/SafeNativeMethods.cs",
-        "src/Native/Unix/SafeSerialHandle.cs",
-        "src/Native/Unix/SerialReadWriteEvent.cs",
-        "src/Native/Unix/SerialUnix.cs",
-        "src/Native/Unix/SysErrNo.cs",
-        "src/Native/Unix/UnsafeNativeMethods.cs",
-        "src/Native/Unix/WaitForModemEvent.cs",
-        "src/Native/UnixNativeSerial.cs",
-        "src/Native/WinNativeSerial.cs",
-        "src/Native/Windows/CommErrorEventArgs.cs",
-        "src/Native/Windows/CommEventArgs.cs",
-        "src/Native/Windows/CommModemStatus.cs",
-        "src/Native/Windows/CommOverlappedIo.cs",
-        "src/Native/Windows/CommProperties.cs",
-        "src/Native/Windows/CommState.cs",
-        "src/Native/Windows/DtrControl.cs",
-        "src/Native/Windows/NativeMethods.cs",
-        "src/Native/Windows/RtsControl.cs",
-        "src/Native/Windows/SafeNativeMethods.cs",
-        "src/Native/Windows/UnsafeNativeMethods.cs",
-        "src/Native/Windows/WinError.cs",
-        "src/Parity.cs",
-        "src/PortDescription.cs",
-        "src/Properties/AssemblyInfo.cs",
-        "src/SerialData.cs",
-        "src/SerialDataEventArgs.cs",
-        "src/SerialError.cs",
-        "src/SerialErrorReceivedEventArgs.cs",
-        "src/SerialPinChange.cs",
-        "src/SerialPinChangedEventArgs.cs",
-        "src/SerialPortStream-net40.csproj",
-        "src/SerialPortStream-net45.csproj",
-        "src/SerialPortStream-netstandard15.csproj",
-        "src/SerialPortStream.cs",
-        "src/StopBits.cs",
-        "src/netstandard/System/EntryPointNotFoundException.cs",
-        "src/netstandard/System/IO/Ports/SerialPort.cs"
+        "lib/netstandard1.5/SerialPortStreamCore.dll",
+        "serialportstreamcore.2.1.0.nupkg.sha512",
+        "serialportstreamcore.nuspec"
       ]
     },
     "SQLitePCLRaw.bundle_green/1.1.12": {
@@ -10271,6 +10250,128 @@
         "ref/xamarinwatchos10/_._",
         "system.net.primitives.4.3.0.nupkg.sha512",
         "system.net.primitives.nuspec"
+      ]
+    },
+    "System.Net.Requests/4.3.0": {
+      "sha512": "OZNUuAs0kDXUzm7U5NZ1ojVta5YFZmgT2yxBqsQ7Eseq5Ahz88LInGRuNLJ/NP2F8W1q7tse1pKDthj3reF5QA==",
+      "type": "package",
+      "path": "system.net.requests/4.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net45/_._",
+        "lib/portable-net45+win8+wp8+wpa81/_._",
+        "lib/win8/_._",
+        "lib/wp80/_._",
+        "lib/wpa81/_._",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net45/_._",
+        "ref/net46/_._",
+        "ref/netcore50/System.Net.Requests.dll",
+        "ref/netcore50/System.Net.Requests.xml",
+        "ref/netcore50/de/System.Net.Requests.xml",
+        "ref/netcore50/es/System.Net.Requests.xml",
+        "ref/netcore50/fr/System.Net.Requests.xml",
+        "ref/netcore50/it/System.Net.Requests.xml",
+        "ref/netcore50/ja/System.Net.Requests.xml",
+        "ref/netcore50/ko/System.Net.Requests.xml",
+        "ref/netcore50/ru/System.Net.Requests.xml",
+        "ref/netcore50/zh-hans/System.Net.Requests.xml",
+        "ref/netcore50/zh-hant/System.Net.Requests.xml",
+        "ref/netstandard1.0/System.Net.Requests.dll",
+        "ref/netstandard1.0/System.Net.Requests.xml",
+        "ref/netstandard1.0/de/System.Net.Requests.xml",
+        "ref/netstandard1.0/es/System.Net.Requests.xml",
+        "ref/netstandard1.0/fr/System.Net.Requests.xml",
+        "ref/netstandard1.0/it/System.Net.Requests.xml",
+        "ref/netstandard1.0/ja/System.Net.Requests.xml",
+        "ref/netstandard1.0/ko/System.Net.Requests.xml",
+        "ref/netstandard1.0/ru/System.Net.Requests.xml",
+        "ref/netstandard1.0/zh-hans/System.Net.Requests.xml",
+        "ref/netstandard1.0/zh-hant/System.Net.Requests.xml",
+        "ref/netstandard1.1/System.Net.Requests.dll",
+        "ref/netstandard1.1/System.Net.Requests.xml",
+        "ref/netstandard1.1/de/System.Net.Requests.xml",
+        "ref/netstandard1.1/es/System.Net.Requests.xml",
+        "ref/netstandard1.1/fr/System.Net.Requests.xml",
+        "ref/netstandard1.1/it/System.Net.Requests.xml",
+        "ref/netstandard1.1/ja/System.Net.Requests.xml",
+        "ref/netstandard1.1/ko/System.Net.Requests.xml",
+        "ref/netstandard1.1/ru/System.Net.Requests.xml",
+        "ref/netstandard1.1/zh-hans/System.Net.Requests.xml",
+        "ref/netstandard1.1/zh-hant/System.Net.Requests.xml",
+        "ref/netstandard1.3/System.Net.Requests.dll",
+        "ref/netstandard1.3/System.Net.Requests.xml",
+        "ref/netstandard1.3/de/System.Net.Requests.xml",
+        "ref/netstandard1.3/es/System.Net.Requests.xml",
+        "ref/netstandard1.3/fr/System.Net.Requests.xml",
+        "ref/netstandard1.3/it/System.Net.Requests.xml",
+        "ref/netstandard1.3/ja/System.Net.Requests.xml",
+        "ref/netstandard1.3/ko/System.Net.Requests.xml",
+        "ref/netstandard1.3/ru/System.Net.Requests.xml",
+        "ref/netstandard1.3/zh-hans/System.Net.Requests.xml",
+        "ref/netstandard1.3/zh-hant/System.Net.Requests.xml",
+        "ref/portable-net45+win8+wp8+wpa81/_._",
+        "ref/win8/_._",
+        "ref/wp80/_._",
+        "ref/wpa81/_._",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "runtimes/unix/lib/netstandard1.3/System.Net.Requests.dll",
+        "runtimes/win/lib/net46/_._",
+        "runtimes/win/lib/netstandard1.3/System.Net.Requests.dll",
+        "system.net.requests.4.3.0.nupkg.sha512",
+        "system.net.requests.nuspec"
+      ]
+    },
+    "System.Net.WebHeaderCollection/4.3.0": {
+      "sha512": "XZrXYG3c7QV/GpWeoaRC02rM6LH2JJetfVYskf35wdC/w2fFDFMphec4gmVH2dkll6abtW14u9Rt96pxd9YH2A==",
+      "type": "package",
+      "path": "system.net.webheadercollection/4.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net46/_._",
+        "lib/netstandard1.3/System.Net.WebHeaderCollection.dll",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net46/_._",
+        "ref/netstandard1.3/System.Net.WebHeaderCollection.dll",
+        "ref/netstandard1.3/System.Net.WebHeaderCollection.xml",
+        "ref/netstandard1.3/de/System.Net.WebHeaderCollection.xml",
+        "ref/netstandard1.3/es/System.Net.WebHeaderCollection.xml",
+        "ref/netstandard1.3/fr/System.Net.WebHeaderCollection.xml",
+        "ref/netstandard1.3/it/System.Net.WebHeaderCollection.xml",
+        "ref/netstandard1.3/ja/System.Net.WebHeaderCollection.xml",
+        "ref/netstandard1.3/ko/System.Net.WebHeaderCollection.xml",
+        "ref/netstandard1.3/ru/System.Net.WebHeaderCollection.xml",
+        "ref/netstandard1.3/zh-hans/System.Net.WebHeaderCollection.xml",
+        "ref/netstandard1.3/zh-hant/System.Net.WebHeaderCollection.xml",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "system.net.webheadercollection.4.3.0.nupkg.sha512",
+        "system.net.webheadercollection.nuspec"
       ]
     },
     "System.Net.WebSockets.WebSocketProtocol/4.5.1": {
@@ -12966,7 +13067,7 @@
       "Microsoft.EntityFrameworkCore.Sqlite >= 2.2.6",
       "Microsoft.NETCore.App >= 2.2.0",
       "Microsoft.VisualStudio.Azure.Containers.Tools.Targets >= 1.9.10",
-      "SerialPortStream >= 2.2.0",
+      "SerialPortStreamCore >= 2.1.0",
       "System.IO.Ports >= 4.7.0"
     ]
   },
@@ -13036,9 +13137,9 @@
             "target": "Package",
             "version": "[1.9.10, )"
           },
-          "SerialPortStream": {
+          "SerialPortStreamCore": {
             "target": "Package",
-            "version": "[2.2.0, )"
+            "version": "[2.1.0, )"
           },
           "System.IO.Ports": {
             "target": "Package",
