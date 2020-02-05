@@ -21,20 +21,26 @@ namespace backend.Services
         public void write(string port, int baud)
         {
             SerialPort serPort = new SerialPort(port, baud);
-
-            if (_toggle)
+            try
             {
-                serPort.WriteLine("on");
-                _toggle = !_toggle;
+                if (_toggle)
+                {
+                    serPort.WriteLine("on");
+                    _toggle = !_toggle;
+                }
+                else
+                {
+                    serPort.WriteLine("off");
+                    _toggle = !_toggle;
+                }
+       
+
+                serPort.Close();
             }
-            else
+            catch(Exception ex)
             {
-                serPort.WriteLine("off");
-                _toggle = !_toggle;
+                Console.WriteLine($"Exception = {ex.ToString()}");
             }
-
-            serPort.Close();
-
         }
 
 
