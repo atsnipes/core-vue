@@ -13,7 +13,24 @@ namespace backend.Controllers
         public ActionResult SerPost(string text)
         {
             SerialService serService = new SerialService("/dev/ttyACM0");
-            Console.WriteLine($"Ports are: {serService.PortNames}");
+
+            serService.write("/dev/ttyACM0",9600);
+            Console.WriteLine("-------9600--------");
+            serService.write("/dev/ttyACM0", 1200);
+            Console.WriteLine("-------1200--------");
+            serService.write("/dev/ttyACM0", 2400);
+            Console.WriteLine("-------2400--------");
+            serService.write("/dev/ttyACM0", 4800);
+            Console.WriteLine("-------4800--------");
+            serService.write("/dev/ttyACM0", 19200);
+            Console.WriteLine("-------19200--------");
+            serService.write("/dev/ttyACM0", 38400);
+            Console.WriteLine("-------38400--------");
+            serService.write("/dev/ttyACM0", 57600);
+            Console.WriteLine("-------57600--------");
+            serService.write("/dev/ttyACM0", 115200);
+            Console.WriteLine("-------115200--------");
+
             return Ok(serService.PortNames);
         }
 

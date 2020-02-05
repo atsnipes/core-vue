@@ -18,9 +18,9 @@ namespace backend.Services
             _port = port;
         }
 
-        public void write()
+        public void write(string port, int baud)
         {
-            SerialPort serPort = new SerialPort(_port, 9600);
+            SerialPort serPort = new SerialPort(port, baud);
 
             if (_toggle)
             {
