@@ -3,19 +3,24 @@ using System.IO.Ports;
 
 namespace backend.Services
 {
-    public class SerialService : ISerialService
+    public class SerialService 
     {
-        readonly Boolean _toggle = false;
+        private Boolean _toggle = false;
+        private readonly string _port;
         public string[] PortNames => SerialPort.GetPortNames();
+        
     
         public SerialService(string port)
         {
 
-            Console.WriteLine($"Trying to open port {port}");
+            Console.WriteLine($"Available ports are = {PortNames}");
+            Console.WriteLine($"Trying to connect to {port}");
+            _port = port;
+        }
 
-            SerialPort serPort = new SerialPort(port, 9600);
-
-            //SerialPortStream serPort = new SerialPortStream(port, 9600);
+        public void write()
+        {
+            SerialPort serPort = new SerialPort(_port, 9600);
 
             if (_toggle)
             {
@@ -29,6 +34,9 @@ namespace backend.Services
             }
 
             serPort.Close();
+
         }
+
+
     }
 }
