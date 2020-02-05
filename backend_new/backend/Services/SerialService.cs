@@ -13,7 +13,11 @@ namespace backend.Services
         public SerialService(string port)
         {
 
-            Console.WriteLine($"Available ports are = {PortNames}");
+            Console.WriteLine($"Available ports are = ");
+            foreach (string portName in PortNames)
+            {
+                Console.WriteLine(port);
+            }
             Console.WriteLine($"Trying to connect to {port}");
             _port = port;
         }
