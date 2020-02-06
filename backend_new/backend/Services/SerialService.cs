@@ -1,50 +1,33 @@
 ﻿using System;
 using System.IO.Ports;
+using System.Device.Gpio;
 
 namespace backend.Services
 {
     public class SerialService 
     {
-        private Boolean _toggle = false;
-        private readonly string _port;
-        public string[] PortNames => SerialPort.GetPortNames();
-        
+        private bool _toggle = false;
+        private readonly int _pinNum = 3;
+        private GpioController _controlla;
     
-        public SerialService(string port)
+        public SerialService()
         {
-
-            Console.WriteLine($"Available ports are = ");
-            foreach (string portName in PortNames)
-            {
-                Console.WriteLine(port);
-            }
-            Console.WriteLine($"Trying to connect to {port}");
-            _port = port;
+            _controlla = new GpioController(PinNumberingScheme.Board);
+            _controlla.SetPinMode(_pinNum, PinMode.Output);
         }
 
-        public void write(string port, int baud)
+        public void write()
         {
-            SerialPort serPort = new SerialPort(port, baud);
             try
             {
-                if (_toggle)
-                {
-                    serPort.WriteLine("on");
-                    _toggle = !_toggle;
-                }
-                else
-                {
-                    serPort.WriteLine("off");
-                    _toggle = !_toggle;
-                }
-       
-
-                serPort.Close();
+                _controlla.Write(_pinNum, _toggle ? PinValue.High : PinValue.Low);
             }
             catch(Exception ex)
             {
                 Console.WriteLine($"Exception = {ex.ToString()}");
             }
+
+            _toggle = !_toggle;
         }
 
 
