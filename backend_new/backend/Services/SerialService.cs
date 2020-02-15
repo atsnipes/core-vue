@@ -16,20 +16,21 @@ namespace backend.Services
             Console.WriteLine($"created controller = {_controlla.ToString()}");
             try
             {
-                Console.WriteLine($"writing to pin value {_toggle}");
-                _controlla.Write(_pinNum, _toggle ? PinValue.High : PinValue.Low);
+                Console.WriteLine($"Setting to pin#{_pinNum} mode to = {PinMode.Output}");
+                _controlla.SetPinMode(_pinNum, PinMode.Output);
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Exception = {ex.ToString()}");
             }
-            _controlla.SetPinMode(_pinNum, PinMode.Output);
+            
         }
 
         public void write()
         {
             try
             {
+                Console.WriteLine($"Writing pin#{_pinNum} to value {_toggle}");
                 _controlla.Write(_pinNum, _toggle ? PinValue.High : PinValue.Low);
             }
             catch(Exception ex)
