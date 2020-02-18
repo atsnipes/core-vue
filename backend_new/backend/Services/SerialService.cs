@@ -4,9 +4,9 @@ using System.Device.Gpio;
 
 namespace backend.Services
 {
-    public class SerialService 
+    public class SerialService : ISerialService
     {
-        private bool _toggle = false;
+        private static bool _toggle = false;
         private readonly int _pinNum = 3;
         private GpioController _controlla;
     

@@ -9,11 +9,16 @@ namespace backend.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        private readonly ISerialService _serService;
+        ValuesController(ISerialService serService)
+        {
+            _serService = serService;
+        }
+
         [HttpGet("serPost")]
         public ActionResult SerPost()
         {
-            SerialService serService = new SerialService();
-            serService.write();
+            _serService.write();
             return Ok();
         }
 
