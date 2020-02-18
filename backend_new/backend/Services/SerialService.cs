@@ -16,9 +16,11 @@ namespace backend.Services
             Console.WriteLine($"created controller = {_controlla.ToString()}");
             try
             {
-                Console.WriteLine($"Setting to pin#{_pinNum} mode to = {PinMode.Output}");
                 _controlla.OpenPin(_pinNum);
+                Console.WriteLine($"Opening to pin#{_pinNum}");
+
                 _controlla.SetPinMode(_pinNum, PinMode.Output);
+                Console.WriteLine($"Setting to pin#{_pinNum} mode to = {PinMode.Output}");
             }
             catch (Exception ex)
             {
@@ -31,15 +33,15 @@ namespace backend.Services
         {
             try
             {
-                Console.WriteLine($"Writing pin#{_pinNum} to value {_toggle}");
                 _controlla.Write(_pinNum, _toggle ? PinValue.High : PinValue.Low);
+                Console.WriteLine($"Wrote pin#{_pinNum} to value {_toggle}");
             }
             catch(Exception ex)
             {
                 Console.WriteLine($"Exception = {ex.ToString()}");
             }
-
             _toggle = !_toggle;
+
         }
 
 
