@@ -10,7 +10,7 @@ namespace backend.Controllers
     public class ValuesController : ControllerBase
     {
         private readonly ISerialService _serService;
-        ValuesController(ISerialService serService)
+        public ValuesController(ISerialService serService)
         {
             _serService = serService;
         }
