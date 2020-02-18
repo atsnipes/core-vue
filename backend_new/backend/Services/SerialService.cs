@@ -17,6 +17,7 @@ namespace backend.Services
             try
             {
                 Console.WriteLine($"Setting to pin#{_pinNum} mode to = {PinMode.Output}");
+                _controlla.OpenPin(_pinNum);
                 _controlla.SetPinMode(_pinNum, PinMode.Output);
             }
             catch (Exception ex)
