@@ -2,8 +2,8 @@
 
 namespace backend.Services
 {
-    interface ISerialService
+    public interface ISerialService
     {
-        string[] PortNames { get; }
+       void write();
     }
 }
