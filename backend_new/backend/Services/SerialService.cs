@@ -29,12 +29,22 @@ namespace backend.Services
             
         }
 
+        public void readPinsStatus()
+        {
+            for(int i = 1; i < _controlla.PinCount + 1; i++)
+            { 
+                Console.WriteLine($"Pin {i} info:");
+                Console.WriteLine($"Pin {i} IsOpen? {_controlla.IsPinOpen(i)}");
+                Console.WriteLine($"Pin {i} Has Pinmode = {_controlla.GetPinMode(i)}");
+            }
+        }
+
         public void write()
         {
             try
             {
                 _controlla.Write(_pinNum, _toggle ? PinValue.High : PinValue.Low);
-                Console.WriteLine($"Wrote pin#{_pinNum} to value {_toggle}");
+                Console.WriteLine($"Wrote pin#{_pinNum} = {_toggle}");
             }
             catch(Exception ex)
             {

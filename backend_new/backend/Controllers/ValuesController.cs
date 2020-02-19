@@ -22,6 +22,14 @@ namespace backend.Controllers
             return Ok();
         }
 
+
+        [HttpGet("status")]
+        public ActionResult Status()
+        {
+            _serService.readPinsStatus();
+            return Ok();
+        }
+
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
