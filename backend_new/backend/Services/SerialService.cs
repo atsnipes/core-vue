@@ -7,7 +7,7 @@ namespace backend.Services
     public class SerialService : ISerialService
     {
         private static bool _toggle = false;
-        private readonly int _pinNum = 3;
+        private readonly int _pinNum = 4;
         private GpioController _controlla;
     
         public SerialService()
@@ -31,20 +31,30 @@ namespace backend.Services
 
         public void readPinsStatus()
         {
-            for(int i = 1; i < _controlla.PinCount + 1; i++)
-            { 
-                Console.WriteLine($"Pin {i} info:");
-                Console.WriteLine($"Pin {i} IsOpen? {_controlla.IsPinOpen(i)}");
-                Console.WriteLine($"Pin {i} Has Pinmode = {_controlla.GetPinMode(i)}");
-            }
+/*            for(int i = 1; i < _controlla.PinCount + 1; i++)
+            { */
+                Console.WriteLine($"Pin {_pinNum} info:");
+                Console.WriteLine($"Pin {_pinNum} IsOpen? {_controlla.IsPinOpen(_pinNum)}");
+                Console.WriteLine($"Pin {_pinNum} Has Pinmode = {_controlla.GetPinMode(_pinNum)}");
+           
         }
 
         public void write()
         {
+            PinValue pinVal = _toggle ? PinValue.High : PinValue.Low;
             try
             {
-                _controlla.Write(_pinNum, _toggle ? PinValue.High : PinValue.Low);
-                Console.WriteLine($"Wrote pin#{_pinNum} = {_toggle}");
+                Console.WriteLine($"Pin Value = {pinVal}");
+                _controlla.Write(_pinNum, pinVal);
+                if(_toggle)
+                {
+                    _controlla.Write(_pinNum, PinValue.High);
+                    Console.WriteLine($"[WROTE SHIT BITCH] - Wrote HIGH reading {_controlla.Read(_pinNum).ToString()}");
+                }
+                else { 
+                    _controlla.Write(_pinNum, PinValue.Low);
+                    Console.WriteLine($"[WROTE SHIT BITCH] - Wrote LOW reading {_controlla.Read(_pinNum).ToString()}");
+                }
             }
             catch(Exception ex)
             {
