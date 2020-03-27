@@ -9,16 +9,16 @@ namespace backend.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
-        private readonly ISerialService _serService;
-        public ValuesController(ISerialService serService)
+
+        public ValuesController()
         {
-            _serService = serService;
+      
         }
 
         [HttpGet("serPost")]
         public ActionResult SerPost()
         {
-            _serService.write();
+
             return Ok();
         }
 
@@ -26,7 +26,7 @@ namespace backend.Controllers
         [HttpGet("status")]
         public ActionResult Status()
         {
-            _serService.readPinsStatus();
+
             return Ok();
         }
 

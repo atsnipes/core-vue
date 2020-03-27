@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Services\IScriptService.cs~RF10bbab33.TMP" />
     <None Remove="Services\ISerialService.cs~RF2f7088.TMP" />
   </ItemGroup>
 

@@ -3,10 +3,7 @@
 
 namespace backend.Services
 {
-    public interface II2cService
+    public interface IScriptService
     {
-        void write();
-
-        void readPinsStatus();
     }
 }
