@@ -18,8 +18,8 @@ namespace backend.Controllers
         [HttpGet("serPost")]
         public ActionResult SerPost()
         {
-
-            return Ok();
+            var result = new ScriptService().callScript;
+            return Ok(result`);
         }
 
 

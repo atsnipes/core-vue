@@ -24,7 +24,7 @@ namespace backend
             var connectionString = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlite(connectionString));
 
-            services.AddSingleton<ISerialService, SerialService>();
+            //services.AddSingleton<ISerialService, SerialService>();
 
             services.AddCors(
                 options =>
