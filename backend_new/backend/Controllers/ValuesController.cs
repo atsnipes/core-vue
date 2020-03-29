@@ -19,7 +19,7 @@ namespace backend.Controllers
         public ActionResult SerPost()
         {
             var result = new ScriptService().callScript;
-            return Ok(result`);
+            return Ok(result);
         }
 
 
